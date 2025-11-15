@@ -10,7 +10,19 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing username or password" }, { status: 400 });
     }
 
-    const { db } = await connectToDatabase();
+    let db;
+    try {
+      const connection = await connectToDatabase();
+      db = connection.db;
+    } catch (dbError: any) {
+      console.error("Database connection error:", dbError);
+      // Format the error message for display (remove newlines for JSON)
+      const errorMsg = dbError.message?.replace(/\n/g, ' ') || "Failed to connect to database. Please check your MongoDB connection string.";
+      return NextResponse.json({ 
+        error: errorMsg
+      }, { status: 503 });
+    }
+
     const usersCollection = db.collection("users");
 
     const user = await usersCollection.findOne({ username, role });
@@ -36,8 +48,10 @@ export async function POST(request: NextRequest) {
     const token = generateToken(user._id.toString(), user.role);
 
     return NextResponse.json({ user: userData, token }, { status: 200 });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Login error:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return NextResponse.json({ 
+      error: error.message || "Internal server error" 
+    }, { status: 500 });
   }
 }

@@ -20,11 +20,18 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      // Create an AbortController for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password, role }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       const data = await response.json();
 
@@ -40,8 +47,12 @@ export default function LoginPage() {
 
       // Redirect based on role
       router.push(role === "customer" ? "/customer/dashboard" : "/provider/dashboard");
-    } catch (err) {
-      setError("An error occurred during login");
+    } catch (err: any) {
+      if (err.name === 'AbortError') {
+        setError("Request timed out. Please check your connection and try again.");
+      } else {
+        setError(err.message || "An error occurred during login. Please check your database connection.");
+      }
       setLoading(false);
     }
   };

@@ -159,7 +159,7 @@ export default function SignupPage() {
             {loading ? "Creating account..." : "Sign Up"}
           </button>
 
-          <div className="links">
+          <div className="signup-links">
             Already have an account? <Link href="/login">Log in</Link>
           </div>
         </form>

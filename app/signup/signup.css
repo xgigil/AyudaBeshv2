@@ -82,18 +82,18 @@
   cursor: not-allowed;
 }
 
-.links {
+.signup-links {
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
 }
 
-.links a {
+.signup-links a {
   color: #f7843c;
   text-decoration: none;
 }
 
-.links a:hover {
+.signup-links a:hover {
   text-decoration: underline;
 }
 

@@ -58,9 +58,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="desktop">
+    <div className="login-desktop">
       <div className="image-container">
-        <Image className="image" src="/logo.png" alt="AyudaBesh Logo" width={200} height={200} />
+        <Image className="image" src="/logo.png" alt="AyudaBesh Logo" width={400} height={400} />
       </div>
 
       <div className="login-container">
@@ -120,7 +120,7 @@ export default function LoginPage() {
             {loading ? "Logging in..." : "Log in"}
           </button>
 
-          <div className="links">
+          <div className="login-links">
             <Link href="/signup">Create an account</Link>
             <a href="#">Forgot password?</a>
           </div>

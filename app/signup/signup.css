@@ -1,9 +1,9 @@
-.desktop {
+.signup-desktop {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #41a5e4 0%, #0073bb 100%);
   padding: 20px;
 }
 
@@ -23,6 +23,8 @@
   margin-bottom: 30px;
   color: #333;
   text-align: center;
+  font-weight: bold;
+  font-size: 23px;
 }
 
 .input-group {
@@ -61,7 +63,7 @@
 .signup-button {
   width: 100%;
   padding: 12px;
-  background: #667eea;
+  background: #f7843c;
   color: white;
   border: none;
   border-radius: 5px;
@@ -72,7 +74,7 @@
 }
 
 .signup-button:hover {
-  background: #5568d3;
+  background: #fa7726;
 }
 
 .signup-button:disabled {
@@ -87,7 +89,7 @@
 }
 
 .links a {
-  color: #667eea;
+  color: #f7843c;
   text-decoration: none;
 }
 

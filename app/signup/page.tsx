@@ -60,7 +60,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="desktop">
+    <div className="signup-desktop">
       <div className="signup-container">
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2>Create Your Account</h2>

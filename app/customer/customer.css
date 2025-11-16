@@ -35,7 +35,8 @@ header {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #667eea;
+  color: #0073bb;
+  font-weight: bold;
 }
 
 .logo h2 {
@@ -59,7 +60,7 @@ header {
 }
 
 .nav-btn:hover {
-  color: #667eea;
+  color: #0073bb;
 }
 
 .logout-btn {
@@ -77,7 +78,7 @@ header {
 }
 
 .home-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #41a5e4 0%, #0073bb 100%);
   padding: 60px 20px;
   text-align: center;
 }
@@ -89,7 +90,8 @@ header {
 
 .search {
   display: flex;
-  gap: 10px;
+  background: white;
+  border-radius: 5px;
 }
 
 .searchTerm {
@@ -103,12 +105,17 @@ header {
 .searchButton {
   padding: 12px 20px;
   background: white;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
-  color: #667eea;
+  color: #0073bb;
+  transition: 0.15s ease;
 }
+
+.searchButton:hover{ 
+  background: #eff8fd; 
+  transform: scale(1.05);
+} 
 
 .container {
   max-width: 1400px;
@@ -188,7 +195,7 @@ header {
 .request-btn {
   width: 100%;
   padding: 10px;
-  background: #667eea;
+  background: #0073bb;
   color: white;
   border: none;
   border-radius: 5px;
@@ -198,7 +205,7 @@ header {
 }
 
 .request-btn:hover {
-  background: #5568d3;
+  background: #2e8eca;
 }
 
 @media (max-width: 768px) {
@@ -240,3 +247,4 @@ header {
     grid-template-columns: 1fr;
   }
 }
+
